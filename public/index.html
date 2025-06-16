@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CookGPT - Healthy Recipes & Nutrition Tracker</title>
+
+  <!-- 🧩 External Libraries -->
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- 🌐 HEADER -->
+  <header class="main-header">
+    <h1>CookGPT 🍽️</h1>
+    <div class="theme-toggle">
+      <input type="checkbox" id="themeSwitch" />
+      <label for="themeSwitch" class="switch"></label>
+    </div>
+  </header>
+
+  <!-- 📚 SIDEBAR -->
+  <aside class="sidebar">
+    <h2>CookGPT 🍽️</h2>
+    <nav>
+      <ul>
+        <li><a href="#search-section">🔍 Search</a></li>
+        <li><a href="#tracker-section">📋 Tracker</a></li>
+        <li><a href="#chart-section">📊 Summary</a></li>
+        <li><a href="#planner-section">🧠 Planner</a></li>
+        <li><a href="health.html">🍞Healthy Meal</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- 🔄 LOADING SPINNER -->
+  <div id="loadingSpinner" class="spinner-overlay" style="display: none;">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- 📋 MAIN CONTENT -->
+  <main class="content">
+    <!-- 🔍 Search Section -->
+    <section id="search-section">
+      <form id="ingredientForm" class="search-form">
+        <label for="search-ingredients">🔍 Search for a food item:</label>
+        <div class="search-controls">
+          <input type="text" id="search-ingredients" placeholder="e.g., banana, oats, chicken" required />
+          <button type="submit">Search</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 📋 Results Section -->
+    <section id="results-section">
+      <h2>📋 Matching Food Items</h2>
+      <div id="recipes" class="card-list horizontal-scroll"></div>
+      <div id="suggestions" class="card-list horizontal-scroll"></div>
+    </section>
+
+    <hr />
+
+    <!-- 🧠 AI Meal Planner -->
+    <section id="planner-section">
+      <h2>🧠 Auto Meal Planner</h2>
+      <form id="mealPlanForm" class="search-form">
+        <label for="planner-ingredients">Enter Ingredients You Have:</label>
+        <div class="search-controls">
+          <input type="text" id="planner-ingredients" placeholder="e.g., eggs, spinach, rice" required />
+          <button type="submit">📅 Generate Meal Plan</button>
+        </div>
+      </form>
+      <div id="mealPlanResults" class="recipe-results"></div>
+    </section>
+
+    <!-- 🍽️ Meal Tracker -->
+    <section id="tracker-section">
+      <h2>🍽️ Daily Nutrition Tracker</h2>
+      <div id="meal-logger" class="vertical-form">
+        <label for="meal-type">Meal Type:</label>
+        <select id="meal-type">
+          <option value="breakfast">Breakfast</option>
+          <option value="lunch">Lunch</option>
+          <option value="dinner">Dinner</option>
+        </select>
+
+        <input type="text" id="meal-name" placeholder="Meal name (e.g., Grilled Chicken)" />
+        <input type="number" id="meal-calories" placeholder="Calories (kcal)" />
+        <input type="number" id="meal-protein" placeholder="Protein (g)" />
+        <input type="number" id="meal-carbs" placeholder="Carbs (g)" />
+        <input type="number" id="meal-fat" placeholder="Fat (g)" />
+        <button type="button" onclick="logMeal()">➕ Add Meal</button>
+      </div>
+
+      <div id="mealCards" class="card-list horizontal-scroll"></div>
+    </section>
+
+    <!-- 📊 Nutrition Chart -->
+    <section id="chart-section">
+      <h2>📊 Today's Nutrition Summary</h2>
+      <canvas id="nutritionChart" width="400" height="200"></canvas>
+    </section>
+
+    <!-- 🔢 Macro Summary Cards -->
+    <section id="macro-cards" class="card-list">
+      <div class="macro-card">🔥 Calories: <strong id="calorie-count">0 kcal</strong></div>
+      <div class="macro-card">💪 Protein: <strong id="protein-count">0 g</strong></div>
+      <div class="macro-card">🍞 Carbs: <strong id="carbs-count">0 g</strong></div>
+      <div class="macro-card">🥑 Fat: <strong id="fat-count">0 g</strong></div>
+    </section>
+  </main>
+
+  <!-- ⚙️ JS Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

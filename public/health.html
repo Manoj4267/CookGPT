@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Health & Meal Planner</title>
+  <link rel="stylesheet" href="./css/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>🧘 Personal Health & Meal Planner</h1>
+    <form id="healthForm">
+      <label for="age">Age:</label>
+      <input type="number" id="age" placeholder="e.g. 25" required />
+
+      <label for="gender">Gender:</label>
+      <select id="gender" required>
+        <option value="">-- Select --</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <label for="height">Height (cm):</label>
+      <input type="number" id="height" placeholder="e.g. 170" required />
+
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" placeholder="e.g. 65" required />
+
+      <label for="activity">Activity Level:</label>
+      <select id="activity" required>
+        <option value="">-- Select --</option>
+        <option value="sedentary">Sedentary (little or no exercise)</option>
+        <option value="light">Lightly active</option>
+        <option value="moderate">Moderately active</option>
+        <option value="active">Very active</option>
+        <option value="extra">Extra active (athlete)</option>
+      </select>
+
+      <button type="submit">Get Health Suggestions</button>
+    </form>
+
+    <div id="results" style="margin-top: 30px;">
+      <div id="bmiResult"></div>
+
+      <div id="aiSuggestions" style="margin-top: 20px;">
+        <!-- AI workout/diet suggestions from SerpAPI will appear here -->
+      </div>
+
+      <div id="mealRecommendations" style="margin-top: 20px;">
+        <!-- Meal suggestions from Spoonacular will appear here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/health.js"></script>
+</body>
+</html>
