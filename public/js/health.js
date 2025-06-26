@@ -11,7 +11,7 @@ document.getElementById('healthForm').addEventListener('submit', async (e) => {
   };
 
   try {
-    const res = await fetch(`/api/health/suggestions`, {
+    const res = await fetch(`${BASE_URL}/api/health/suggestions`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)

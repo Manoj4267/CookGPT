@@ -1,4 +1,4 @@
-
+const BASE_URL = 'https://cookgpt-backend.onrender.com';
 // === Daily Nutrition Stats ===
 let dailyStats = {
   calories: 0,
@@ -90,7 +90,7 @@ document.getElementById('ingredientForm').addEventListener('submit', async (e) =
   if (!ingredients) return;
 
   try {
-    const res = await fetch('/api/recipes', {
+    const res = await fetch(`${BASE_URL}/api/recipes`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ingredients })
@@ -149,7 +149,7 @@ document.getElementById('mealPlanForm').addEventListener('submit', async (e) => 
   if (!ingredients) return;
 
   try {
-    const res = await fetch('/api/recipes/plan', {
+    const res = await fetch(`${BASE_URL}/api/recipes/plan`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ingredients })
