@@ -1,3 +1,4 @@
+const BASE_URL = 'https://cookgpt-backend.onrender.com';
 document.getElementById('healthForm').addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -10,7 +11,7 @@ document.getElementById('healthForm').addEventListener('submit', async (e) => {
   };
 
   try {
-    const res = await fetch('http://localhost:3000/api/health/suggestions', {
+    const res = await fetch(`/api/health/suggestions`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
